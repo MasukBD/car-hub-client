@@ -6,13 +6,13 @@ import icon3 from '../../assets/icons/location.png';
 
 const HomePageContact = () => {
     return (
-        <div className='my-10 bg-black rounded-md text-white px-5 py-16'>
+        <div className='my-10 lg:my-20 bg-black rounded-md text-white px-5 py-16'>
             <div className='flex flex-col lg:flex-row justify-between items-center gap-10'>
                 <div className='flex gap-4'>
                     <img src={icon1} alt="Calender Icon" />
                     <div>
                         <p>We are open monday-friday!</p>
-                        <h3 className='font-bold text-2xl'>7:00 am - 9:00 pm</h3>
+                        <h3 className='font-bold text-2xl'>9:00 am - 9:00 pm</h3>
                     </div>
                 </div>
                 <div className='flex gap-4'>

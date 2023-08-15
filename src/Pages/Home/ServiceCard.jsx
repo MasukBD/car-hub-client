@@ -6,7 +6,7 @@ import { FaArrowRight } from 'react-icons/fa';
 
 const ServiceCard = ({ service }) => {
 
-    const { title, img, price } = service;
+    const { _id, title, img, price } = service;
 
     return (
         <div className="card w-full bg-base-100 shadow-lg">
@@ -18,7 +18,7 @@ const ServiceCard = ({ service }) => {
                     <h2 className="card-title">{title}</h2>
                     <p className='font-bold text-red-600 py-2'>Price: ${price}</p>
                 </div>
-                <Link><button className='text-red-600'><FaArrowRight></FaArrowRight></button></Link>
+                <Link to={`/checkout/${_id}`}><button className='text-red-600'><FaArrowRight></FaArrowRight></button></Link>
             </div>
         </div>
     );
