@@ -4,6 +4,7 @@ import Banner from './Carousel/Banner';
 import HomeAbout from './HomeAbout';
 import ServiceArea from './ServiceArea';
 import HomePageContact from './HomePageContact';
+import Product from './Product';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <HomeAbout></HomeAbout>
             <ServiceArea></ServiceArea>
             <HomePageContact></HomePageContact>
+            <Product></Product>
         </div>
     );
 };
