@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import logo from '../assets/logo.png';
 import { Link, NavLink } from 'react-router-dom';
 import { HiMagnifyingGlass, HiShoppingBag } from "react-icons/hi2";
@@ -9,6 +9,12 @@ import { toast } from 'react-hot-toast';
 const Header = () => {
 
     const { user, logOut } = useContext(AuthContext);
+    const [cart, setCart] = useState([]);
+    useEffect(() => {
+        fetch(`http://localhost:5000/orders?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => setCart(data))
+    }, [user]);
 
     const handleLogout = () => {
         logOut()
@@ -54,7 +60,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <span><HiShoppingBag></HiShoppingBag></span>
+                    <Link className='relative' to="/cartDetails" title='Veiw Cart'><HiShoppingBag></HiShoppingBag><span className='badge text-red-500 font-bold absolute -top-4'>{cart?.length}</span></Link>
                     <span className='mx-5'><HiMagnifyingGlass></HiMagnifyingGlass></span>
                     <Link className="btn btn-outline btn-error">Appointment</Link>
 

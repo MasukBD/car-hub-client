@@ -17,61 +17,59 @@ const Team = () => {
                 <p className='w-full lg:w-1/2 mx-auto space-y-3'>A mechanic is responsible for inspecting and repairing vehicles, machinery, and light trucks. Also known as service technicians and perform repairs. </p>
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
-                <Link to="">
-                    <div className="card w-full bg-base-100 shadow-lg">
-                        <figure className="px-10 pt-10">
-                            <img src={img1} alt="product" className="rounded-xl" />
-                        </figure>
-                        <div className="card-body">
-                            <div className='text-center'>
-                                <h2 className="text-2xl font-bold">Diesel mechanic</h2>
-                                <p className='font-bold text-red-600 py-2'>Race car mechanics</p>
-                                <p className='flex items-center justify-center flex-row gap-4'>
-                                    <a href=''><img className='w-10' src={icon1} alt="facebook" /></a>
-                                    <a href=''><img className='w-10' src={icon2} alt="instagram" /></a>
-                                    <a href=''><img className='w-10' src={icon3} alt="twitter" /></a>
+                {/* Person 1 */}
+                <div className="card w-full bg-base-100 shadow-lg">
+                    <figure className="px-10 pt-10">
+                        <img src={img1} alt="product" className="rounded-xl" />
+                    </figure>
+                    <div className="card-body">
+                        <div className='text-center'>
+                            <h2 className="text-2xl font-bold">Diesel mechanic</h2>
+                            <p className='font-bold text-red-600 py-2'>Race car mechanics</p>
+                            <p className='flex items-center justify-center flex-row gap-4'>
+                                <a href=''><img className='w-10' src={icon1} alt="facebook" /></a>
+                                <a href=''><img className='w-10' src={icon2} alt="instagram" /></a>
+                                <a href=''><img className='w-10' src={icon3} alt="twitter" /></a>
 
-                                </p>
-                            </div>
+                            </p>
                         </div>
                     </div>
-                </Link>
-                <Link to="">
-                    <div className="card w-full bg-base-100 shadow-lg">
-                        <figure className="px-10 pt-10">
-                            <img src={img2} alt="product" className="rounded-xl" />
-                        </figure>
-                        <div className="card-body">
-                            <div className='text-center'>
-                                <h2 className="text-2xl font-bold">Auto body mechanics</h2>
-                                <p className='font-bold text-red-600 py-2'>Service technicians</p>
-                                <p className='flex items-center justify-center flex-row gap-4'>
-                                    <a href=''><img className='w-10' src={icon1} alt="facebook" /></a>
-                                    <a href=''><img className='w-10' src={icon2} alt="instagram" /></a>
-                                    <a href=''><img className='w-10' src={icon3} alt="twitter" /></a>
-                                </p>
-                            </div>
+                </div>
+                {/* Person 2 */}
+                <div className="card w-full bg-base-100 shadow-lg">
+                    <figure className="px-10 pt-10">
+                        <img src={img2} alt="product" className="rounded-xl" />
+                    </figure>
+                    <div className="card-body">
+                        <div className='text-center'>
+                            <h2 className="text-2xl font-bold">Auto body mechanics</h2>
+                            <p className='font-bold text-red-600 py-2'>Service technicians</p>
+                            <p className='flex items-center justify-center flex-row gap-4'>
+                                <a href=''><img className='w-10' src={icon1} alt="facebook" /></a>
+                                <a href=''><img className='w-10' src={icon2} alt="instagram" /></a>
+                                <a href=''><img className='w-10' src={icon3} alt="twitter" /></a>
+                            </p>
                         </div>
                     </div>
-                </Link>
-                <Link to="">
-                    <div className="card w-full bg-base-100 shadow-lg">
-                        <figure className="px-10 pt-10">
-                            <img src={img3} alt="product" className="rounded-xl" />
-                        </figure>
-                        <div className="card-body">
-                            <div className='text-center'>
-                                <h2 className="text-2xl font-bold">Heavy equipment mechanic</h2>
-                                <p className='font-bold text-red-600 py-2'>Brake and transmission technicians</p>
-                                <p className='flex items-center justify-center flex-row gap-4'>
-                                    <a href=''><img className='w-10' src={icon1} alt="facebook" /></a>
-                                    <a href=''><img className='w-10' src={icon2} alt="instagram" /></a>
-                                    <a href=''><img className='w-10' src={icon3} alt="twitter" /></a>
-                                </p>
-                            </div>
+                </div>
+                {/* Person 3 */}
+                <div className="card w-full bg-base-100 shadow-lg">
+                    <figure className="px-10 pt-10">
+                        <img src={img3} alt="product" className="rounded-xl" />
+                    </figure>
+                    <div className="card-body">
+                        <div className='text-center'>
+                            <h2 className="text-2xl font-bold">Heavy equipment mechanic</h2>
+                            <p className='font-bold text-red-600 py-2'>Brake and transmission technicians</p>
+                            <p className='flex items-center justify-center flex-row gap-4'>
+                                <a href=''><img className='w-10' src={icon1} alt="facebook" /></a>
+                                <a href=''><img className='w-10' src={icon2} alt="instagram" /></a>
+                                <a href=''><img className='w-10' src={icon3} alt="twitter" /></a>
+                            </p>
                         </div>
                     </div>
-                </Link>
+                </div>
+
             </div>
         </div>
     );

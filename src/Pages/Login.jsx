@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
 import loginImg from '../assets/images/login/login.svg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import iconGoogle from '../assets/social-icon/google.png';
 import iconfacebook from '../assets/social-icon/facebook.png';
 import iconInsta from '../assets/social-icon/github.png';
@@ -11,6 +11,10 @@ import toast from 'react-hot-toast';
 const Login = () => {
 
     const { signIn } = useContext(AuthContext);
+    const location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
+    const navigate = useNavigate();
 
     const handleLogin = e => {
         e.preventDefault();
@@ -22,7 +26,7 @@ const Login = () => {
                 const loggedUser = result.user;
                 form.reset();
                 toast.success('Login Successfull!');
-                console.log(loggedUser)
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 toast.error(error.message);

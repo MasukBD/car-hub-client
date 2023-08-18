@@ -9,6 +9,8 @@ import Contact from "../Pages/Contact";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Checkout from "../Pages/Checkout";
+import CartDetails from "../Pages/CartDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -46,8 +48,12 @@ const router = createBrowserRouter([
             },
             {
                 path: "/checkout/:id",
-                element: <Checkout></Checkout>,
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+            },
+            {
+                path: '/cartDetails',
+                element: <PrivateRoute><CartDetails></CartDetails></PrivateRoute>
             }
         ]
 
