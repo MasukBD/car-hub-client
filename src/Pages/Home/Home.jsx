@@ -5,6 +5,8 @@ import HomeAbout from './HomeAbout';
 import ServiceArea from './ServiceArea';
 import HomePageContact from './HomePageContact';
 import Product from './Product';
+import Team from './Team';
+import Features from './Features';
 
 const Home = () => {
     return (
@@ -14,6 +16,8 @@ const Home = () => {
             <ServiceArea></ServiceArea>
             <HomePageContact></HomePageContact>
             <Product></Product>
+            <Team></Team>
+            <Features></Features>
         </div>
     );
 };
