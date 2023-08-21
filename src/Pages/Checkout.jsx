@@ -23,7 +23,7 @@ const Checkout = () => {
             customerName: name, date, email, Phone: Mobile, Price: price, ServiceId: _id, ServiceName: title, image: img
         }
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://car-hub-server-nine.vercel.app/orders', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

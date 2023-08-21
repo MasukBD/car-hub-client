@@ -10,8 +10,8 @@ const Header = () => {
 
     const { user, logOut } = useContext(AuthContext);
     const [cart, setCart] = useState([]);
-    useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user?.email}`, {
+    if (user && user.email) {
+        fetch(`https://car-hub-server-nine.vercel.app/orders?email=${user?.email}`, {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('car-hub-token')}`
@@ -19,13 +19,12 @@ const Header = () => {
         })
             .then(res => res.json())
             .then(data => setCart(data))
-    }, [user]);
+    }
 
     const handleLogout = () => {
         logOut()
             .then(() => {
                 toast.success('LogOut Succeessfully!');
-                localStorage.removeItem('car-hub-token');
             })
             .catch(error => {
                 toast.error(error.message);

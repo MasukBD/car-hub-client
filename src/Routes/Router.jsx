@@ -32,7 +32,8 @@ const router = createBrowserRouter([
             },
             {
                 path: "/service",
-                element: <Service></Service>
+                element: <Service></Service>,
+                loader: () => fetch('https://car-hub-server-nine.vercel.app/services')
             },
             {
                 path: "/contact",

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
 import loginImg from '../assets/images/login/login.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import iconGoogle from '../assets/social-icon/google.png';
 import iconfacebook from '../assets/social-icon/facebook.png';
 import iconInsta from '../assets/social-icon/github.png';
@@ -13,7 +13,8 @@ import useTitle from '../hooks/useTitle';
 
 const Register = () => {
 
-    const { createUserWithEmail } = useContext(AuthContext);
+    const { createUserWithEmail, googleLogin } = useContext(AuthContext);
+    const navigate = useNavigate()
 
     const handleRegister = event => {
         event.preventDefault();
@@ -43,6 +44,19 @@ const Register = () => {
                 toast.error(error.message);
             })
     }
+
+    const handleGoogleSingIn = () => {
+        googleLogin()
+            .then(result => {
+                const user = result.user;
+                toast.success(`Log in Successfully as ${user.displayName}`)
+                navigate('/');
+            })
+            .catch(error => {
+                toast.error(error.message);
+            })
+    }
+
     useTitle('Register');
     return (
         <div className='flex flex-col lg:flex-row gap-7 my-16'>
@@ -74,7 +88,7 @@ const Register = () => {
                 <p className='divider'>OR</p>
                 <p className='my-2 text-center'>Continue With</p>
                 <div className='flex justify-center gap-8 mt-5'>
-                    <button><img className='w-10' src={iconGoogle} alt="" /></button>
+                    <button onClick={handleGoogleSingIn}><img className='w-10' src={iconGoogle} alt="" /></button>
                     <button><img className='w-10' src={iconfacebook} alt="" /></button>
                     <button><img className='w-10' src={iconInsta} alt="" /></button>
                 </div>

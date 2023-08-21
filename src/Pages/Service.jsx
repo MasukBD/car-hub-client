@@ -1,17 +1,11 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
 import ServiceCard from './Home/ServiceCard';
-import { Link } from 'react-router-dom';
 import useTitle from '../hooks/useTitle';
+import { useLoaderData } from 'react-router-dom';
 
 const Service = () => {
-    const [services, setServices] = useState([]);
+    const services = useLoaderData();
 
-    useEffect(() => {
-        fetch('http://localhost:5000/services')
-            .then(res => res.json())
-            .then(data => setServices(data))
-    }, []);
     useTitle('Service');
     return (
         <div className='my-10'>

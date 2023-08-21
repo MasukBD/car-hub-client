@@ -7,7 +7,7 @@ const ServiceArea = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://car-hub-server-nine.vercel.app/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
@@ -23,7 +23,9 @@ const ServiceArea = () => {
                     services.slice(0, 6).map(service => <ServiceCard service={service} key={service._id}></ServiceCard>)
                 }
             </div>
-            <Link to="/service" className='text-center block'><button className='btn btn-outline font-bold btn-error mt-5'>See More</button></Link>
+            <div className='text-center mt-5'>
+                <Link to="/service"><button className='btn btn-outline font-bold btn-error'>See More</button></Link>
+            </div>
         </div>
     );
 };

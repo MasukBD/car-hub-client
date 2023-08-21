@@ -13,7 +13,7 @@ const CartDetails = () => {
     const [cart, setCart] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user?.email}`, {
+        fetch(`https://car-hub-server-nine.vercel.app/orders?email=${user?.email}`, {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('car-hub-token')}`
@@ -25,18 +25,11 @@ const CartDetails = () => {
                     setCart(data)
                 }
                 else {
-                    logOut()
-                        .then(() => {
-                            toast.error('Sign out! Sign in again!')
-                            localStorage.removeItem('car-hub-token')
-                        })
-                        .then(error => {
-                            toast.error(error.message)
-                        })
+
                     navigate('/')
                 }
             })
-    }, [user, navigate, logOut]);
+    }, [user, navigate]);
 
     // Delete an item from database 
     const handleDeleteCartItem = id => {
@@ -50,7 +43,7 @@ const CartDetails = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/orders/${id}`, { method: "DELETE" })
+                fetch(`https://car-hub-server-nine.vercel.app/orders/${id}`, { method: "DELETE" })
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount > 0) {
@@ -70,7 +63,7 @@ const CartDetails = () => {
     };
 
     const handleUpdateItem = id => {
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://car-hub-server-nine.vercel.app/orders/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"

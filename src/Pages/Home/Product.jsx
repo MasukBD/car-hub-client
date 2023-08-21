@@ -6,7 +6,7 @@ import ProductCard from './ProductCard';
 const Product = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://car-hub-server-nine.vercel.app/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -22,8 +22,10 @@ const Product = () => {
                     products.map(product => <ProductCard product={product} key={product._id}></ProductCard>)
                 }
             </div>
-            <a href='https://www.alibaba.com/showroom/lamborghini-parts.html' className='text-center block' target="_blank" rel="noreferrer"
-            ><button className='btn btn-outline font-bold btn-error mt-5'>See More</button></a>
+            <div className='text-center'>
+                <a href='https://www.alibaba.com/showroom/lamborghini-parts.html' target="_blank" rel="noreferrer"
+                ><button className='btn btn-outline font-bold btn-error mt-5'>See More</button></a>
+            </div>
         </div>
     );
 };

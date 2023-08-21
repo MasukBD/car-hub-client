@@ -11,7 +11,7 @@ import useTitle from '../hooks/useTitle';
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleLogin } = useContext(AuthContext);
     const location = useLocation();
 
     let from = location.state?.from?.pathname || "/";
@@ -27,27 +27,27 @@ const Login = () => {
                 const user = result.user;
                 form.reset();
                 toast.success('Login Successfull!');
-                const loggedUser = {
-                    email: user.email
-                }
-                fetch('http://localhost:5000/jwt', {
-                    method: "POST",
-                    headers: {
-                        'content-type': "application/json"
-                    },
-                    body: JSON.stringify(loggedUser)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        localStorage.setItem('car-hub-token', data.token);
-                        navigate(from, { replace: true });
-                    })
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                toast.error(error.message);
+            })
+    };
+
+    const handleGoogleSingIn = () => {
+        googleLogin()
+            .then(result => {
+                const user = result.user;
+                toast.success(`Log in Successfully as ${user.displayName}`)
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 toast.error(error.message);
             })
     }
+
     useTitle('Login');
+
     return (
         <div className='flex flex-col lg:flex-row gap-7 my-16'>
             <img className='w-full lg:w-1/2' src={loginImg} alt="" />
@@ -74,7 +74,7 @@ const Login = () => {
                 <p className='divider'>OR</p>
                 <p className='my-2 text-center'>Continue With</p>
                 <div className='flex justify-center gap-8 mt-5'>
-                    <button><img className='w-10' src={iconGoogle} alt="" /></button>
+                    <button onClick={handleGoogleSingIn}><img className='w-10' src={iconGoogle} alt="" /></button>
                     <button><img className='w-10' src={iconfacebook} alt="" /></button>
                     <button><img className='w-10' src={iconInsta} alt="" /></button>
                 </div>
