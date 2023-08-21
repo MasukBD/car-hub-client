@@ -7,8 +7,10 @@ import HomePageContact from './HomePageContact';
 import Product from './Product';
 import Team from './Team';
 import Features from './Features';
+import useTitle from '../../hooks/useTitle';
 
 const Home = () => {
+    useTitle('Home');
     return (
         <div>
             <Banner></Banner>

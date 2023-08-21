@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import ServiceCard from './Home/ServiceCard';
 import { Link } from 'react-router-dom';
+import useTitle from '../hooks/useTitle';
 
 const Service = () => {
     const [services, setServices] = useState([]);
@@ -10,7 +11,8 @@ const Service = () => {
         fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => setServices(data))
-    }, [])
+    }, []);
+    useTitle('Service');
     return (
         <div className='my-10'>
             <div className='text-center'>

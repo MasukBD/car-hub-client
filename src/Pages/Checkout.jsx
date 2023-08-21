@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 import coverImg from '../assets/images/checkout/checkout.png';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import useTitle from '../hooks/useTitle';
 
 const Checkout = () => {
     const service = useLoaderData();
@@ -34,7 +35,7 @@ const Checkout = () => {
                 console.log(data)
                 if (data.insertedId) {
                     Swal.fire({
-                        title: 'Order Submitted!',
+                        title: 'Added In The Cart!',
                         text: 'We will notify You later!',
                         icon: 'success',
                         confirmButtonText: 'OK'
@@ -45,6 +46,7 @@ const Checkout = () => {
 
 
     }
+    useTitle('Checkout');
     return (
         <>
             <div className='relative'>

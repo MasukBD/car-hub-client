@@ -9,6 +9,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 import { sendEmailVerification, updateProfile } from 'firebase/auth';
 import Swal from 'sweetalert2';
 import { toast } from 'react-hot-toast';
+import useTitle from '../hooks/useTitle';
 
 const Register = () => {
 
@@ -41,10 +42,8 @@ const Register = () => {
             .catch(error => {
                 toast.error(error.message);
             })
-
-
-
     }
+    useTitle('Register');
     return (
         <div className='flex flex-col lg:flex-row gap-7 my-16'>
             <img className='w-full lg:w-1/2' src={loginImg} alt="" />

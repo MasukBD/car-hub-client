@@ -11,7 +11,12 @@ const Header = () => {
     const { user, logOut } = useContext(AuthContext);
     const [cart, setCart] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user?.email}`)
+        fetch(`http://localhost:5000/orders?email=${user?.email}`, {
+            method: "GET",
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('car-hub-token')}`
+            },
+        })
             .then(res => res.json())
             .then(data => setCart(data))
     }, [user]);
@@ -20,6 +25,7 @@ const Header = () => {
         logOut()
             .then(() => {
                 toast.success('LogOut Succeessfully!');
+                localStorage.removeItem('car-hub-token');
             })
             .catch(error => {
                 toast.error(error.message);

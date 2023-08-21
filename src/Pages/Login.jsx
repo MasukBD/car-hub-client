@@ -7,6 +7,7 @@ import iconfacebook from '../assets/social-icon/facebook.png';
 import iconInsta from '../assets/social-icon/github.png';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import useTitle from '../hooks/useTitle';
 
 const Login = () => {
 
@@ -23,16 +24,30 @@ const Login = () => {
         const password = form.password.value;
         signIn(email, password)
             .then(result => {
-                const loggedUser = result.user;
+                const user = result.user;
                 form.reset();
                 toast.success('Login Successfull!');
-                navigate(from, { replace: true })
+                const loggedUser = {
+                    email: user.email
+                }
+                fetch('http://localhost:5000/jwt', {
+                    method: "POST",
+                    headers: {
+                        'content-type': "application/json"
+                    },
+                    body: JSON.stringify(loggedUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('car-hub-token', data.token);
+                        navigate(from, { replace: true });
+                    })
             })
             .catch(error => {
                 toast.error(error.message);
             })
     }
-
+    useTitle('Login');
     return (
         <div className='flex flex-col lg:flex-row gap-7 my-16'>
             <img className='w-full lg:w-1/2' src={loginImg} alt="" />

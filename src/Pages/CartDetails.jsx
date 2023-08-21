@@ -4,15 +4,39 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 import banner from '../assets/images/checkout/checkout.png';
 import CartTable from './CartTable';
 import Swal from 'sweetalert2';
+import useTitle from '../hooks/useTitle';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const CartDetails = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [cart, setCart] = useState([]);
+    const navigate = useNavigate();
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user?.email}`)
+        fetch(`http://localhost:5000/orders?email=${user?.email}`, {
+            method: "GET",
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('car-hub-token')}`
+            },
+        })
             .then(res => res.json())
-            .then(data => setCart(data))
-    }, [user]);
+            .then(data => {
+                if (!data.error) {
+                    setCart(data)
+                }
+                else {
+                    logOut()
+                        .then(() => {
+                            toast.error('Sign out! Sign in again!')
+                            localStorage.removeItem('car-hub-token')
+                        })
+                        .then(error => {
+                            toast.error(error.message)
+                        })
+                    navigate('/')
+                }
+            })
+    }, [user, navigate, logOut]);
 
     // Delete an item from database 
     const handleDeleteCartItem = id => {
@@ -56,6 +80,7 @@ const CartDetails = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
+                    toast.success('Order Confirmed');
                     const remaining = cart.filter(c => c._id !== id);
                     const updatedItem = cart.find(c => c._id === id);
                     updatedItem.status = 'confirmed';
@@ -65,6 +90,7 @@ const CartDetails = () => {
             })
     }
 
+    useTitle('Cart');
     return (
         <div>
             {/* cart Banner */}

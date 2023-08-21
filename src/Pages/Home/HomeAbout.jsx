@@ -5,6 +5,7 @@ import img2 from '../../assets/images/about_us/parts.jpg';
 import { Link } from 'react-router-dom';
 
 const HomeAbout = () => {
+
     return (
         <div className='lg:my-24 my-12 flex flex-col lg:flex-row lg:px-9 gap-10 lg:gap-5'>
             <div className='relative'>

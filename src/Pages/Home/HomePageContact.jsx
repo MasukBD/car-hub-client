@@ -5,6 +5,7 @@ import icon2 from '../../assets/icons/call.png';
 import icon3 from '../../assets/icons/location.png';
 
 const HomePageContact = () => {
+
     return (
         <div className='my-10 lg:my-20 bg-black rounded-md text-white px-5 py-16'>
             <div className='flex flex-col lg:flex-row justify-between items-center gap-10'>
