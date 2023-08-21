@@ -1,6 +1,6 @@
 ## Project Name: Car Hub Mechanic
 
-### Live site [https://car-hub-mechanic-ea328.web.app/](Car-Hub-Mechanic)
+### Live site [Car-Hub-Mechanic](https://car-hub-mechanic-ea328.web.app)
 
 ## Technologies
 - React Router Dom
