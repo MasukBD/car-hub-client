@@ -14,7 +14,7 @@ const Banner = () => {
                 <img src={img1} className="w-full rounded-md" />
                 <div className="absolute lg:right-0 flex rounded-md items-center justify-end h-full lg:bg-gradient-to-l from-[#151515] to-[rgba(21, 21, 21, 0.00)] bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
                     <div className='w-full lg:w-1/2 space-y-3 lg:space-y-7 pl-5 text-white'>
-                        <h1 className='lg:text-6xl text-3xl font-bold'>Affordable Price For Car Servicing</h1>
+                        <h1 className='lg:text-6xl text-3xl font-bold'>Maintenance And Services With Best Price In Dhaka</h1>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form!</p>
                         <div className='flex gap-7'>
                             <Link to="/service"><button className='btn btn-error'>Services</button></Link>
@@ -31,7 +31,7 @@ const Banner = () => {
                 <img src={img2} className="w-full rounded-md" />
                 <div className="absolute lg:right-0 rounded-md flex items-center justify-end h-full lg:bg-gradient-to-l from-[#151515] to-[rgba(21, 21, 21, 0.00)] bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
                     <div className='w-full lg:w-1/2 space-y-3 lg:space-y-7 pl-5 text-white'>
-                        <h1 className='lg:text-6xl text-3xl font-bold'>Affordable Price For Car Servicing</h1>
+                        <h1 className='lg:text-6xl text-3xl font-bold'>Maintenance And Services With Best Price In Dhaka</h1>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form!</p>
                         <div className='flex gap-7'>
                             <Link to="/service"><button className='btn btn-error'>Services</button></Link>
@@ -48,7 +48,7 @@ const Banner = () => {
                 <img src={img3} className="w-full rounded-md" />
                 <div className="absolute lg:left-0 rounded-md flex items-center justify-start h-full bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
                     <div className='w-full lg:w-1/2 space-y-3 lg:space-y-7 pl-5 text-white'>
-                        <h1 className='lg:text-6xl text-3xl font-bold'>Affordable Price For Car Servicing</h1>
+                        <h1 className='lg:text-6xl text-3xl font-bold'>Maintenance And Services With Best Price In Dhaka</h1>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form!</p>
                         <div className='flex gap-7'>
                             <Link to="/service"><button className='btn btn-error'>Services</button></Link>
@@ -65,7 +65,7 @@ const Banner = () => {
                 <img src={img4} className="w-full rounded-md" />
                 <div className="absolute lg:left-0 rounded-md flex items-center justify-start h-full bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
                     <div className='w-full lg:w-1/2 space-y-3 lg:space-y-7 pl-5 text-white'>
-                        <h1 className='lg:text-6xl text-3xl font-bold'>Affordable Price For Car Servicing</h1>
+                        <h1 className='lg:text-6xl text-3xl font-bold'>Maintenance And Services With Best Price In Dhaka</h1>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form!</p>
                         <div className='flex gap-7'>
                             <Link to="/service"><button className='btn btn-error'>Services</button></Link>

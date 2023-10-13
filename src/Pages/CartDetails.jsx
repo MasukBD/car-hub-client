@@ -9,7 +9,7 @@ import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 const CartDetails = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const [cart, setCart] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
