@@ -5,8 +5,8 @@ import useTitle from '../hooks/useTitle';
 const Blog = () => {
     useTitle('Blog');
     return (
-        <div className='min-h-screen'>
-
+        <div className='flex justify-center items-center min-h-screen'>
+            <div><h1 className='text-center text-3xl font-semibold'>Oppss! You are Near!</h1><p className='font-semibold text-center'>This Page Is Under Development!</p></div>
         </div>
     );
 };
